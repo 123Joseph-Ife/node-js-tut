@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head.ejs") %>
+    <body>
+        <%- include("../partials/nav.ejs") %>
+
+        <div class="create-blog content">
+            <form action="/blogs" method="post">
+                <!-- Title -->
+                <label for="title" aria-labelledby="title">Blog title:</label>
+                <input
+                    name="title"
+                    type="text"
+                    id="title"
+                    title="title"
+                    aria-label="title"
+                    required
+                />
+
+                <!-- Snippet -->
+
+                <label for="snippet" aria-labelledby="snippet"
+                    >Blog snippet:</label
+                >
+                <input
+                    name="snippet"
+                    type="text"
+                    id="snippet"
+                    title="snippet"
+                    aria-label="snippet"
+                    required
+                />
+
+                <!-- Body -->
+                <label for="body" aria-labelledby="body">Blog title</label>
+                <textarea
+                    name="body"
+                    id="body"
+                    title="title"
+                    aria-label="title"
+                    required
+                ></textarea>
+                <button>Submit</button>
+            </form>
+        </div>
+        <%- include("../partials/footer.ejs") %>
+    </body>
+</html>
