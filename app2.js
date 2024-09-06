@@ -1,17 +1,15 @@
 const express = require("express");
-const app = express();
-const blogRoutes = require("./routes/BlogRoutes")
-
 const mongoose = require("mongoose");
+const blogRoutes = require("./routes/BlogRoutes");
 
-const dbURI =
-    "mongodb+srv://ifeoluwa:ifeoluwa@nodetuts.druvw.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts";
-mongoose
-    .connect(dbURI)
-    .then((res) => app.listen(3000))
-    .catch((err) => {
-        console.log(err);
-    });
+const app = express();
+const port = 3000;
+
+const dbURI = "mongodb+srv://ifeoluwa:ifeoluwa@nodetuts.druvw.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts";
+
+mongoose.connect(dbURI)
+    .then(() => app.listen(port, () => console.log(`Server running on port ${port}`)))
+    .catch((err) => console.log(err));
 
 app.set("view engine", "ejs");
 
@@ -30,16 +28,12 @@ app.get("/", (req, res) => {
     res.redirect("/blogs");
 });
 
-//blog routes
-
-
 app.get("/about", (req, res) => {
     res.render("about", { title: "about" });
 });
 
-
-app.use('/blogs', blogRoutes)
+app.use('/blogs', blogRoutes);
 
 app.use((req, res) => {
-    res.render("404", { title: "404 not foound" });
+    res.render("404", { title: "404 not found" });
 });
