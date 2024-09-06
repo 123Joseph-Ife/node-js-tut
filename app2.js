@@ -5,9 +5,9 @@ const blogRoutes = require("./routes/BlogRoutes")
 const mongoose = require("mongoose");
 
 const dbURI =
-    "mongodb+srv://ifeoluwa:ifeoluwa@nodetuts.s7qppzj.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts";
+    "mongodb+srv://ifeoluwa:ifeoluwa@nodetuts.druvw.mongodb.net/node-tuts?retryWrites=true&w=majority&appName=nodetuts";
 mongoose
-    .connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect(dbURI)
     .then((res) => app.listen(3000))
     .catch((err) => {
         console.log(err);
